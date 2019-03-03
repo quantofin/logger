@@ -43,17 +43,27 @@ jobs:
           name: Build project
           command: npm run build
       
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .    
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
       - run:
-          name: Make file executable
-          command: chmod +x ./build/checkDeploy.sh
-
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Check for bot and deploy is user
-          command: ./build/checkDeploy.sh
+          name: Publish package
+          command: npm publish
+      - run: 
+          name: Publish coverage files to Codecov
+          command: ./node_modules/.bin/codecov
             
 workflows:
   version: 2
-  test-build:
+  test-build-deploy:
     jobs:
       - test:
           filters:
@@ -64,4 +74,12 @@ workflows:
             - test
           filters:
             tags:
+              only: /^v.*/  
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
               only: /^v.*/
+            branches:
+              only: master  
