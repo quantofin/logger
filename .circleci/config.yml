@@ -17,7 +17,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-	        # fallback to using the latest cache if no exact match is found
+          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: npm install
@@ -33,11 +33,6 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
-  build:
-    <<: *defaults
-    steps:
-      - codecov/upload:
-          file: "dist/report.html"
   deploy:
     <<: *defaults
     steps:
@@ -49,6 +44,9 @@ jobs:
       - run:
           name: Publish package
           command: npm publish
+      - run: 
+          name: Publish coverage files to Codecov
+          command: ./node_modules/.bin/codecov
             
 workflows:
   version: 2
