@@ -32,7 +32,7 @@ if you find an error, edit the source files, and re-run
 
 # 💾 Install
 
-**Latest Release:** @qfin/logger:0.0.11
+**Latest Release:** @qfin/logger:0.0.12
 
 ```bash
 npm install @qfin/logger
