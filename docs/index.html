@@ -24,6 +24,117 @@
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
               
+                
+                <li><a
+                  href='#logger'
+                  class=" toggle-sibling">
+                  Logger
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#loggerlog'
+                        class='regular pre-open'>
+                        .log
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggertrace'
+                        class='regular pre-open'>
+                        .trace
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggerdebug'
+                        class='regular pre-open'>
+                        .debug
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggerinfo'
+                        class='regular pre-open'>
+                        .info
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggerwarn'
+                        class='regular pre-open'>
+                        .warn
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggererror'
+                        class='regular pre-open'>
+                        .error
+                      </a></li>
+                    
+                      <li><a
+                        href='#loggerfatal'
+                        class='regular pre-open'>
+                        .fatal
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#loggerlog'
+                        class='regular pre-open'>
+                        #log
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggertrace'
+                        class='regular pre-open'>
+                        #trace
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggerdebug'
+                        class='regular pre-open'>
+                        #debug
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggerinfo'
+                        class='regular pre-open'>
+                        #info
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggerwarn'
+                        class='regular pre-open'>
+                        #warn
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggererror'
+                        class='regular pre-open'>
+                        #error
+                      </a></li>
+                      
+                      <li><a
+                        href='#loggerfatal'
+                        class='regular pre-open'>
+                        #fatal
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
@@ -32,6 +143,1376 @@
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='logger'>
+      Logger
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>The Logger class</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>Logger</div>
+   
+  
+    <p>
+      Type:
+      <a href="#logger">Logger</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    Configuration options for the logger.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.base</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  
+    (default <code>null</code>)
+  </td>
+  <td class='break-word'><span>An object with base properties that will be printed with every log line.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.name</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  
+    (default <code>undefined</code>)
+  </td>
+  <td class='break-word'><span>The name of the logger. It is a good practice to give names for easier identification of modules for example.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.level</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  
+    (default <code>&#39;info&#39;</code>)
+  </td>
+  <td class='break-word'><span>The log level. One of 'fatal', 'error', 'warn', 'info', 'debug', 'trace' or 'silent'.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.file</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  
+    (default <code>undefined</code>)
+  </td>
+  <td class='break-word'><span>The location of the log file. If not given, logs will be outputted to std out/err.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.prettyPrint</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?</code>
+  </td>
+  <td class='break-word'><span>Whether to pretty print the logs or output json lines
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.redact</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)?</code>
+  </td>
+  <td class='break-word'><span>The object props to redact from the output. As an array, the redact option specifies paths that should have their values redacted from any log output. Each path must be a string using a syntax which corresponds to JavaScript dot and bracket notation. If an object is supplied, three options can be specified: 
+<code>paths</code>
+, 
+<code>censor</code>
+ and 
+<code>remove</code>
+.
+</span></td>
+</tr>
+
+  
+    <tr>
+  <td class='break-word'><span class='code bold'>options.redact.paths</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>
+  </td>
+  <td class='break-word'><span>Required. An array of paths.
+</span></td>
+</tr>
+
+
+  
+    <tr>
+  <td class='break-word'><span class='code bold'>options.redact.censor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</code>
+  
+    (default <code>&#39;[Redacted]&#39;</code>)
+  </td>
+  <td class='break-word'><span>Censor option will overwrite keys which are to be redacted.
+</span></td>
+</tr>
+
+
+  
+    <tr>
+  <td class='break-word'><span class='code bold'>options.redact.remove</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+  
+    (default <code>false</code>)
+  </td>
+  <td class='break-word'><span>Instead of censoring the value, remove both the key and the value.
+</span></td>
+</tr>
+
+
+  
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.browser</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  
+    (default <code>undefined</code>)
+  </td>
+  <td class='break-word'><span>Config for browsers only.
+</span></td>
+</tr>
+
+  
+    <tr>
+  <td class='break-word'><span class='code bold'>options.browser.write</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?</code>
+  </td>
+  <td class='break-word'><span>Instead of passing log messages to console.log they can be passed to a supplied function.
+If write is an object, it can have methods that correspond to the levels. When a message is logged at a given level, the corresponding method is called. If a method isn't present, the logging falls back to using the console.
+</span></td>
+</tr>
+
+
+  
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> Logger <span class="hljs-keyword">from</span> <span class="hljs-string">'@qfin/logger'</span>;
+
+<span class="hljs-comment">// this creates a parent logger with name (my-app)</span>
+<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger({ <span class="hljs-attr">name</span>: <span class="hljs-string">'my-app'</span>, <span class="hljs-attr">level</span>: <span class="hljs-string">'info'</span> });
+
+logger.info(<span class="hljs-string">'Hello world from my awesome app!'</span>);
+logger.debug(<span class="hljs-string">'This will not be printed'</span>);
+
+<span class="hljs-comment">// --- somewhere else in the codebase</span>
+
+<span class="hljs-keyword">import</span> Logger <span class="hljs-keyword">from</span> <span class="hljs-string">'@qfin/logger'</span>;
+
+<span class="hljs-comment">// this creates a child logger with name (db) and it takes the log-level of the parent logger</span>
+<span class="hljs-keyword">const</span> dbLogger = <span class="hljs-keyword">new</span> Logger({ <span class="hljs-attr">name</span>: <span class="hljs-string">'db'</span> });
+
+dbLogger.info(<span class="hljs-string">'Successfully connected to Database: '</span>, <span class="hljs-string">`<span class="hljs-subst">${db.host}</span>:<span class="hljs-subst">${db.port}</span>/<span class="hljs-subst">${db.name}</span>`</span>);
+
+<span class="hljs-comment">// --- static logger usage</span>
+
+<span class="hljs-keyword">import</span> Logger <span class="hljs-keyword">from</span> <span class="hljs-string">'@qfin/logger'</span>;
+
+<span class="hljs-comment">// If logger is already initialized, then the parent logger reference will be used in this static call</span>
+<span class="hljs-comment">// otherwise, a default parent logger will be initialized and then that will be used for logging</span>
+Logger.log(<span class="hljs-string">'This is a static logger log'</span>);</pre>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='loggerlog'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>log(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a log with default or set level.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>log(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    An object can optionally be supplied as the first parameter. Each enumerable key and value of the mergingObject is copied in to the JSON log line.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    <code>args</code>
+ are of type varargs and each of the args can take various forms as follows:
+<ul>
+<li>
+<p>A message string can optionally be supplied as the first parameter, or as the second parameter after supplying a mergingObject.
+By default, the contents of the message parameter will be merged into the JSON log line under the msg key.</p>
+</li>
+<li>
+<p>All arguments supplied after message are serialized and interpolated according to any supplied printf-style placeholders (%s, %d, %o|%O|%j) or else concatenated together with the message string to form the final output msg value for the JSON log line.</p>
+</li>
+</ul>
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>logger.info({<span class="hljs-attr">MIX</span>: {<span class="hljs-attr">IN</span>: <span class="hljs-literal">true</span>}})
+<span class="hljs-comment">// {"level":30,"time":1531254555820,"MIX":{"IN":true},"v":1}</span>
+
+logger.info(<span class="hljs-string">'hello world'</span>)
+<span class="hljs-comment">// {"level":30,"time":1531257112193,"msg":"hello world","v":1}</span>
+
+logger.info(<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>)
+<span class="hljs-comment">// {"level":30,"time":1531257618044,"msg":"hello world","v":1}</span>
+
+logger.info(<span class="hljs-string">'hello'</span>, {<span class="hljs-attr">worldly</span>: <span class="hljs-number">1</span>})
+<span class="hljs-comment">// {"level":30,"time":1531257797727,"msg":"hello {\"worldly\":1}","v":1}</span>
+
+logger.info(<span class="hljs-string">'%o hello'</span>, {<span class="hljs-attr">worldly</span>: <span class="hljs-number">1</span>})
+<span class="hljs-comment">// {"level":30,"time":1531257826880,"msg":"{\"worldly\":1} hello","v":1}</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggertrace'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>trace(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'trace' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>trace(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerdebug'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>debug(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'debug' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>debug(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>info(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'info' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>info(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerwarn'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>warn(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'warn' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>warn(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggererror'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>error(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'error' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>error(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerfatal'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fatal(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Static Method</p>
+<p>Write a 'fatal' level log, if the configured level allows for it.</p>
+<p>If the logger has already been initialized then the log level will be referred from the initialized logger,
+otherwise a new logger will be initialized and its default properties will be set and used.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>fatal(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='loggerlog'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>log(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a log with default or set level. The level can be set in the constructor parameter</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>log(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggertrace'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>trace(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'trace' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>trace(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerdebug'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>debug(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'debug' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>debug(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>info(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'info' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>info(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerwarn'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>warn(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'warn' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>warn(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggererror'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>error(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'error' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>error(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='loggerfatal'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fatal(arg0?, args?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Write a 'fatal' level log, if the configured level allows for it.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>fatal(arg0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?, args: ...any?)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>arg0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any?)</code>
+	    See 
+[Logger's log method for more info]
+<a href="#loggerlog">Logger.log</a>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
         
       </div>
     </div>
