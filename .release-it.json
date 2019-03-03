@@ -1,0 +1,17 @@
+{
+  "non-interactive": true,
+  "scripts": {
+    "beforeStage": "npm run build && auto-changelog"
+  },
+  "git": {
+    "tagName": "v${version}",
+    "tagAnnotation": "Release v${version}",
+    "commitMessage": "Release v${version}",
+    "requireUpstream": false,
+    "requireCleanWorkingDir": false,
+    "push": false
+  },
+  "npm": {
+    "publish": false
+  }
+}

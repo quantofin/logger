@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+config/
+dist/
+test/unit/coverage/
+node_modules/
+examples/node_modules/
+coverage/
+Dockerfile
