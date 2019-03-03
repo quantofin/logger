@@ -33,6 +33,19 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+  build: 
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      
+      - run: 
+          name: Build project
+          command: npm run build
+      
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .    
   deploy:
     <<: *defaults
     steps:
@@ -50,15 +63,21 @@ jobs:
             
 workflows:
   version: 2
-  test-deploy:
+  test-build-deploy:
     jobs:
       - test:
           filters:
             tags:
               only: /^v.*/
-      - deploy:
+      - build:
           requires:
             - test
+          filters:
+            tags:
+              only: /^v.*/  
+      - deploy:
+          requires:
+            - build
           filters:
             tags:
               only: /^v.*/
