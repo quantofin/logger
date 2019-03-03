@@ -51,7 +51,15 @@ if (!isDev) {
     new CustomScriptRunnerPlugin('Documentation:html', 'documentation build -f html -o dist/docs src/main.mjs'),
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: 'static' }),
     new CustomScriptRunnerPlugin('RunTest', 'jest', 'beforeRun'),
-    new CopyWebpackPlugin(['package.json', 'package-lock.json', 'README.md', 'LICENSE', 'CHANGELOG.md', 'examples/**']),
+    new CopyWebpackPlugin([
+      'package.json',
+      'package-lock.json',
+      'README.md',
+      'LICENSE',
+      'CHANGELOG.md',
+      'examples/**',
+      'docs/**',
+    ]),
   ].forEach((p) => plugins.push(p));
 } else {
   [new NodemonPlugin()].forEach((p) => plugins.push(p));
@@ -73,7 +81,7 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 1000,
     // poll: 1000,
-    ignored: ['node_modules', 'coverage', 'dist', 'src/**/__tests__/**'],
+    ignored: ['node_modules', 'coverage', 'docs', 'dist', 'src/**/__tests__/**'],
   },
   resolve: {
     extensions: ['.js', '.mjs', '.json'],
@@ -120,7 +128,7 @@ module.exports = {
         test: /\.m?js$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        exclude: [/node_modules/, /examples/],
+        exclude: [/node_modules/, /examples/, /docs/],
         include: __dirname,
         options: {
           fix: true,
@@ -132,7 +140,7 @@ module.exports = {
         test: /\.m?js$/,
         loader: 'babel-loader',
         include: __dirname,
-        exclude: [/node_modules/, /examples/],
+        exclude: [/node_modules/, /examples/, /docs/],
         // TODO: Indicate what parts of the module contain side effects, to help with tree-shaking
         // Refer: https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free
         // sideEffects: false,

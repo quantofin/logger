@@ -85,3 +85,4 @@ fabric.properties
 *.iml
 examples/node_modules/
 coverage/
+docs/

@@ -17,9 +17,15 @@ function diagramToMarkdown(diagrams) {
 }
 
 async function generateDocs(config, documentation) {
-  const { PACKAGE_NAME, PACKAGE_VERSION, MODULE_PATH } = config;
+  const { PACKAGE_NAME, PACKAGE_VERSION, PACKAGE_DESCRIPTION, MODULE_PATH } = config;
   // Template for README Markdown
   const template = fs.readFileSync(path.join(__dirname, 'readme-template.md'), 'utf8');
+  const headerJsx = `
+<h1 align="center">
+  <p align="center">${PACKAGE_NAME}</p>
+  <p align="center" style="font-size: 0.5em">${PACKAGE_DESCRIPTION}</p>
+</h1><br />
+`;
 
   documentation
     .build(path.join(MODULE_PATH, 'src', 'main.mjs'), {
@@ -29,9 +35,10 @@ async function generateDocs(config, documentation) {
     })
     .then(documentation.formats.md)
     .then((markdown) => {
-      const readme = `# ${PACKAGE_NAME}\n\n${template
-        .replace(/{PACKAGE_NAME}/g, PACKAGE_NAME)
-        .replace(/{PACKAGE_VERSION}/g, PACKAGE_VERSION)}\n\n${markdown}`;
+      const readme = `${headerJsx +
+        template
+          .replace(/{PACKAGE_NAME}/g, PACKAGE_NAME)
+          .replace(/{PACKAGE_VERSION}/g, PACKAGE_VERSION)}\n\n${markdown}`;
       fs.writeFileSync(path.join(MODULE_PATH, 'README.md'), readme);
     })
     .catch((error) => console.error(error));
@@ -50,7 +57,7 @@ async function generateDocs(config, documentation) {
       })
     )
     .then((files) => {
-      const outputPath = path.join(MODULE_PATH, 'dist', 'docs');
+      const outputPath = path.join(MODULE_PATH, 'docs');
       if (!fs.existsSync(outputPath)) {
         fs.mkdirSync(outputPath, { recursive: true });
       }

@@ -2,6 +2,7 @@
 .idea/
 config/
 dist/
+docs/
 test/unit/coverage/
 node_modules/
 examples/node_modules/

@@ -4,6 +4,9 @@ const path = require('path');
 const ENV = process.env.NODE_ENV || 'test';
 const isTest = ENV === 'test';
 
+// --- Ignore paths... update this as needed
+const ignorePatterns = ['/node_modules/', '/dist/', '/build/', '/coverage/', '/docs/', '/examples/'];
+
 let mod = fs
   .readdirSync(path.join(__dirname, 'src'))
   .filter((p) => {
@@ -19,17 +22,11 @@ mod = `^@(${mod})(.*)$`;
 module.exports = {
   verbose: isTest,
   moduleFileExtensions: ['js', 'mjs', 'json', 'node'],
-  modulePathIgnorePatterns: ['/node_modules/', '/dist/', '/build/', '/coverage/'],
+  modulePathIgnorePatterns: ignorePatterns,
   moduleNameMapper: { [mod]: '<rootDir>/src/$1$2' },
   transform: { '^.+\\.m?jsx?$': 'babel-jest' },
   testMatch: ['**/__tests__/*.spec.(js|mjs|ts)'],
   collectCoverage: isTest,
-  collectCoverageFrom: [
-    '<rootDir>/src/**/*.{js,mjs}',
-    '!**/node_modules/**',
-    '!**/buid/**',
-    '!**/dist/**',
-    '!**/coverage/**',
-  ],
-  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '/build/', '/coverage/'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.{js,mjs}', ...ignorePatterns.map((p) => `!**${p}**`)],
+  coveragePathIgnorePatterns: ignorePatterns,
 };

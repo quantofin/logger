@@ -1,7 +1,7 @@
 {
   "name": "@qfin/logger",
   "version": "0.0.1",
-  "description": "The most awesome isomorphic logger for NodeJs and Browsers",
+  "description": "The most awesome isomorphic logger for NodeJs and Browsers 😎 ❤",
   "main": "dist/main.js",
   "author": "Sohail Alam <hello@sohailalam.in>",
   "license": "MIT",
@@ -61,6 +61,7 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-source-map-support": "^2.0.1",
+    "codecov": "^3.2.0",
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.2.0",
     "dockerode": "^2.5.8",
