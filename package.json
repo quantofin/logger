@@ -1,6 +1,6 @@
 {
   "name": "@qfin/logger",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "The most awesome isomorphic logger for NodeJs and Browsers 😎 ❤",
   "main": "dist/main.js",
   "author": "Sohail Alam <hello@sohailalam.in>",
