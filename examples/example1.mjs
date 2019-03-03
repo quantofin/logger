@@ -1,4 +1,4 @@
-import Logger from '../src/main';
+import Logger from '../dist/main';
 
 // Instance logger
 

@@ -62,16 +62,21 @@ if (!isDev) {
     ]),
   ].forEach((p) => plugins.push(p));
 } else {
-  [new NodemonPlugin()].forEach((p) => plugins.push(p));
+  [
+    new NodemonPlugin({
+      ignore: ['node_modules/*', 'dist/*', 'coverage/*', 'docs/*'],
+      watch: path.resolve('./'),
+      ext: 'js,mjs,json,node',
+    }),
+  ].forEach((p) => plugins.push(p));
 }
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'main'),
   output: {
     path: path.join(__dirname, 'dist'),
-    library: pkg.name.split('/')[1],
+    libraryExport: 'default',
     libraryTarget: 'umd',
-    umdNamedDefine: true,
   },
   externals: [NodeExternals()],
   target: 'node',
@@ -128,7 +133,7 @@ module.exports = {
         test: /\.m?js$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        exclude: [/node_modules/, /examples/, /docs/],
+        exclude: [/node_modules/, /examples/, /docs/, /dist/, /coverage/],
         include: __dirname,
         options: {
           fix: true,
@@ -140,7 +145,7 @@ module.exports = {
         test: /\.m?js$/,
         loader: 'babel-loader',
         include: __dirname,
-        exclude: [/node_modules/, /examples/, /docs/],
+        exclude: [/node_modules/, /examples/, /docs/, /dist/, /coverage/],
         // TODO: Indicate what parts of the module contain side effects, to help with tree-shaking
         // Refer: https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free
         // sideEffects: false,
