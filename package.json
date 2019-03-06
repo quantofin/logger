@@ -79,7 +79,7 @@
     "jest": "^24.1.0",
     "nodemon-webpack-plugin": "^4.0.7",
     "pino-pretty": "^2.5.0",
-    "prettier": "1.14.2",
+    "prettier": "1.16.4",
     "prettier-webpack-plugin": "^1.1.0",
     "release-it": "^10.1.0",
     "terser-webpack-plugin": "^1.2.2",
