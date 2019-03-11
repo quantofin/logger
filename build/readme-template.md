@@ -34,3 +34,5 @@ npm install @qfin/logger
 ```
 
 # ⚙ Module Documentation
+
+> Documentation is available at [https://quantofin.github.io/{MODULE_NAME}/](https://quantofin.github.io/{MODULE_NAME}/)

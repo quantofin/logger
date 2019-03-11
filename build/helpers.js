@@ -38,6 +38,7 @@ async function generateDocs(config, documentation) {
       const readme = `${headerJsx +
         template
           .replace(/{PACKAGE_NAME}/g, PACKAGE_NAME)
+          .replace(/{MODULE_NAME}/g, PACKAGE_NAME.split('/')[1])
           .replace(/{PACKAGE_VERSION}/g, PACKAGE_VERSION)}\n\n${markdown}`;
       fs.writeFileSync(path.join(MODULE_PATH, 'README.md'), readme);
     })
