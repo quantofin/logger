@@ -14,8 +14,8 @@
     "release": "release-it",
     "release:minor": "release-it minor",
     "release:major": "release-it major",
-    "dev": "cross-env NODE_ENV=development npm run build && node dist/main",
-    "prod": "cross-env NODE_ENV=production npm run build && node dist/main"
+    "dev": "cross-env NODE_ENV=development npm run build && node examples/example2",
+    "prod": "npm run build && node dist/main"
   },
   "engines": {
     "node": ">=8"

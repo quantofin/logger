@@ -101,7 +101,7 @@ export default class Logger {
    */
   constructor(options = {}) {
     // if parent logger is available and log level is not passed, then inherit the parent's log level
-    if (!options.level && Logger.logger) options.level = Logger.logger.logLevel;
+    if (!options.level && Logger.logger) options.level = Logger.logger.level;
 
     const props = Logger.LoggerProps(options);
 
