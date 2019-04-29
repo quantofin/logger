@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import pino from 'pino';
 
 const superstruct = require('superstruct');
@@ -99,6 +100,9 @@ export default class Logger {
    *
    */
   constructor(options = {}) {
+    // if parent logger is available and log level is not passed, then inherit the parent's log level
+    if (!options.level && Logger.logger) options.level = Logger.logger.logLevel;
+
     const props = Logger.LoggerProps(options);
 
     if (Logger.logger) {
