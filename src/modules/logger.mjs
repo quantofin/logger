@@ -112,9 +112,8 @@ export default class Logger {
       });
     } else {
       this.loggerInstance = Logger.instantiateLogger(options);
+      addFinalHandler(this.loggerInstance); // only add handlers once
     }
-
-    addFinalHandler(this.loggerInstance);
     this.logLevel = props.level;
   }
 
