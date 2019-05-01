@@ -81,7 +81,7 @@
     "pino-pretty": "^3.0.0",
     "prettier": "1.17.0",
     "prettier-webpack-plugin": "^1.1.0",
-    "release-it": "^10.4.5",
+    "release-it": "^11.0.0",
     "terser-webpack-plugin": "^1.2.2",
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
