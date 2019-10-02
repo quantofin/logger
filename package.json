@@ -67,7 +67,7 @@
     "dockerode": "^3.0.1",
     "documentation": "^12.0.1",
     "eslint": "^6.0.1",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-import-resolver-webpack": "^0.11.1",
