@@ -42,7 +42,7 @@
     "express-pino-logger": "^4.0.0",
     "pino": "^5.12.6",
     "source-map-support": "^0.5.12",
-    "superstruct": "^0.8.2"
+    "superstruct": "^0.13.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
